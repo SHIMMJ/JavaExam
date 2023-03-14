@@ -18,15 +18,18 @@ public class Cleric {
     }
 
     Cleric(String name, int hp) {
-        this("아서스", 35, MAX_MP);
+        this(name, hp, MAX_MP);
     }
 
     Cleric(String name) {
-        this("아서스", MAX_HP, MAX_MP);
+        this(name, MAX_HP, MAX_MP);
     }
-    Cleric(){
+    
+    // 기본생성자
+    Cleric() {
         
     }
+   
 
 
 

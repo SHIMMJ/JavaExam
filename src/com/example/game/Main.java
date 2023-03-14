@@ -32,9 +32,12 @@ public class Main {
         //// hero.run();
 
         Cleric cleric = new Cleric();
-        System.out.println("MP : " + cleric.mp + " HP : " + cleric.hp + "인 캐릭터를 생성했습니다!");
+        Cleric cleric1 = new Cleric("아서스",40,5);
+        Cleric cleric2 = new Cleric("아서스",35);
+        Cleric cleric3 = new Cleric("아서스");
+        System.out.println("MP : " + cleric1.mp + " HP : " + cleric.hp + "인 캐릭터를 생성했습니다!");
         cleric.SelfAid();
-        int heal = cleric.pray(3);
+        int heal = cleric1.pray(3);
         System.out.println("heal : " + heal + " 만큼되어 MP : " + cleric.mp + " HP : " + cleric.hp);
 
     }
