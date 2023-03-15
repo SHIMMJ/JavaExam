@@ -5,7 +5,7 @@ public class Wizard {
     private int hp;
     private int mp;
     private String name;
-    Wand wand;
+    private Wand wand;
 
     public String getName() {
         return name;
