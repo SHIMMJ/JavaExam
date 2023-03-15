@@ -1,6 +1,9 @@
 package com.simminjeong.praticeex.exam10;
 
 public class Main {
+    
+    public void something(int... nums) {}
+    
     public static void main(String[] args) {
 
         Wizard wizard = new Wizard();
