@@ -6,6 +6,8 @@ public abstract class Asset {
     private int price;
     private String color;
 
+
+
     Asset(String name, int price, String color) {
         this.name = name;
         this.price = price;
@@ -17,5 +19,7 @@ public abstract class Asset {
     public abstract int getPrice();
 
     public abstract String getColor();
+
+
 
 }
