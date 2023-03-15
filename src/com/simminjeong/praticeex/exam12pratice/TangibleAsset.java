@@ -4,8 +4,9 @@ public abstract class TangibleAsset extends Asset implements Thing {
 
     private double weight;
 
-    TangibleAsset(String name, int price, String color) {
+    TangibleAsset(String name, int price, String color, double weight) {
         super(name, price, color);
+        this.weight = weight;
     }
 
     @Override

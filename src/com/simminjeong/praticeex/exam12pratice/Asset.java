@@ -1,12 +1,11 @@
 package com.simminjeong.praticeex.exam12pratice;
 
 public abstract class Asset {
-
+//asset은 추상적인 개념으로 인스턴스 안만들려고
+    
     private String name;
     private int price;
     private String color;
-
-
 
     Asset(String name, int price, String color) {
         this.name = name;
@@ -14,12 +13,16 @@ public abstract class Asset {
         this.color = color;
     }
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    };
 
-    public abstract int getPrice();
+    public int getPrice() {
+        return price;
+    };
 
-    public abstract String getColor();
+    public String getColor() {
+        return color;
 
-
-
+    }
 }
