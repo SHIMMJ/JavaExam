@@ -1,8 +1,8 @@
 package com.simminjeong.praticeex.exam12pratice;
 
 public abstract class Asset {
-//asset은 추상적인 개념으로 인스턴스 안만들려고
-    
+    // asset은 추상적인 개념으로 인스턴스 안만들려고
+
     private String name;
     private int price;
     private String color;
