@@ -2,6 +2,7 @@ package com.simminjeong.praticeex.exam12pratice;
 
 public abstract class TangibleAsset extends Asset implements Thing {
 
+    private String color;
     private double weight;
 
     TangibleAsset(String name, int price, String color) {
