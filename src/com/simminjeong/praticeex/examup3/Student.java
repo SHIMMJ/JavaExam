@@ -56,13 +56,13 @@ public class Student implements Comparable<Student> {
         Student other = (Student) obj;
         return id == other.id && Objects.equals(name, other.name);
     }
-    
-    
+
+
 
     @Override
     public int compareTo(Student o) {
         return (id < o.id) ? -1 : ((id == o.id) ? 0 : 1); // 숫자 오름차순
-//         return this.name.compareTo(o.name) * -1; // 이름 내림차순 기본이 오름차순
+        // return this.name.compareTo(o.name) * -1; // 이름 내림차순 기본이 오름차순
 
     }
 }
