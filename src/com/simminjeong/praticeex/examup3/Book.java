@@ -1,5 +1,6 @@
 package com.simminjeong.praticeex.examup3;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -57,18 +58,21 @@ public class Book implements Comparable<Book>{
     }
 
 
+    SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
+    
     @Override
     public int compareTo(Book o) {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.publishDate.compareTo(o.publishDate);
     }
 
 
-//    @Override
-//    public int compareTo(Book o) {
-//        return (id < o.id) ? -1 : ((id == o.id) ? 0 : 1);
-//    }
-    
+    @Override
+    public String toString() {
+        return "Book [title=" + title + ", publishDate=" + publishDate + ", comment=" + comment
+                + "]";
+    }
+
+
     
     
     
