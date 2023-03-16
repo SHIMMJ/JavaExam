@@ -1,58 +1,44 @@
 package com.simminjeong.praticeex.examup3;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
+        Set<Book> setbooks=new HashSet<>();
+             
+        SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
         
-        List<String> strs=new ArrayList<>();
-        strs.add("이동학");
-        strs.add("박경덕");
-        strs.add("강태근");
-        strs.add("최유림");
+        Book book1=new Book("가자",format.parse("2011/10/22"),"재밌어요");
+        Book book2=new Book("누가 내 머리에 똥쌌어",format.parse("2022/04/02"),"즐거워요");
+        Book book3=new Book("누가 내 머리에 똥쌌어",format.parse("2022/04/02"),"안즐거워요");
         
-        Collections.sort(strs);
-        System.out.println(strs);
+        setbooks.add(book1);
+        setbooks.add(book2);
+        setbooks.add(book3);
         
-        List<Integer> nums=new ArrayList<>();
-        nums.add(5);
-        nums.add(1);
-        nums.add(8);
-        nums.add(2);
-        
-        Collections.sort(nums);
-        System.out.println(nums);
-        
-        
-        List<Student> students=new ArrayList<>();
-        
-        students.add(new Student(0,"이동학"));
-        students.add(new Student(1,"박경덕"));
-        students.add(new Student(2,"강태근"));
-        students.add(new Student(3,"최유림"));
+        // equals비교
+        if (book2.equals(book3)) {
+            System.out.println("같아요");
+        } else {
+            System.out.println("달라요");
+        }
         
         
-       
+        // hashcode()비교
+        System.out.println(setbooks);
         
-        Collections.sort(students);//내가 만든건 안해줘
-        // 어떤 기준으로 해줘야하는지 모르기 때문에
-        System.out.println(students);
+        System.out.println(book1.hashCode());
+        System.out.println(book2.hashCode());
+        System.out.println(book3.hashCode());
+        
  
-        
-        
-        
-        
-        List<Student> list = new ArrayList<>();
-        //list가 arraylist보다 상위에 있거나
-        //list 인터페이스를 쓰지 않았을까 생각
-        //f3 해서 한번 찾아보기
-        // 다형성에 의해서
-        
-        
 
     }
 
