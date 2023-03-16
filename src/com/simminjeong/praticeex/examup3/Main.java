@@ -39,25 +39,35 @@ public class Main {
 
         // equals비교
         if (book2.equals(book3)) {
-            System.out.println("같아요");
+            System.out.println("제목과 출간일이 같아요");
         } else {
-            System.out.println("달라요");
+            System.out.println("제목과 출간일이 달라요");
         }
 
 
         // hashcode()비교
+        System.out.println();
+        System.out.println("hashset이라 제목과 출간일이 같은 책이라 한개만 들어옴 ");
         System.out.println(setbooks);
-
+        
+        System.out.println();
+        System.out.println("hashcode 주소");
+        System.out.println("제목과 출간일이 같은 책은 같은 hashcode를 가짐");
         System.out.println(book1.hashCode());
         System.out.println(book2.hashCode());
         System.out.println(book3.hashCode());
 
+        
 
         // (2) Book 인스턴스를 담고 있는 컬렉션에 대해 Collections.sort() 를 사용하면 출간일이 오래된 순서대로 정렬된다.
+        System.out.println();
+        System.out.println("출간일이 오래된 순서대로 출력");
         Collections.sort(listbooks);
         System.out.println(listbooks);
 
         // (3) clone() 메서드를 호출하면 복제된다.
+        System.out.println();
+        System.out.println("clone 복사");
         System.out.println(book1);
         System.out.println(book1.clone());
 
