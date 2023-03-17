@@ -48,10 +48,7 @@ public class StrongBox<T> {
             System.out.println(금고.get());
 
         }
-
     }
-
-
 
 }
 
