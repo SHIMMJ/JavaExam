@@ -19,22 +19,23 @@ public class Main {
         int day = calendar.get(Calendar.DATE);
 
         // 얻은 값에 100을 더한 값을 Calendar 의 일 에 설정한다
-        calendar.add(Calendar.DATE, day);
-        
+        calendar.add(Calendar.DATE, day + 100);
+
         // Calendar 의 날짜정보를 Date 형으로 변환한다
         Date date = calendar.getTime();
-        
+
         // SimpleDateFormat 을 이용하여 Date 인스턴스의 내용을 표시한다
-        SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-        format.format(date);
+        SimpleDateFormat format = new SimpleDateFormat("서기 yyyy년 MM월 dd일");
+        System.out.println(format.format(date));
 
 
         Account a = new Account("4649", 1592);
         Account b = new Account(" 4649", 1592);
         System.out.println(a);
+        System.out.println(a.toString());
 
-        
-        
+
+
         if (a.equals(b)) {
             System.out.println("계좌번호 같다.");
         } else {
