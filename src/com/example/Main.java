@@ -81,6 +81,7 @@ public class Main {
         double circle = 3.14;
         long pie = 314159265853979L;
         String attack = "항구를 공격! 적에게 15포인트의 데미지를 주었다";
+        System.out.println("Hellowolrd");
 
 
 
