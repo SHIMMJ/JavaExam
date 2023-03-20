@@ -1,5 +1,6 @@
 package com.simminjeong.praticeex.examup06;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -25,10 +26,14 @@ public class Exam {
  
         try {
             // 압축
-            BufferedReader input = new BufferedReader(new FileReader("data.txt"));
-
+            //BufferedReader input = new BufferedReader(new FileReader("data.txt"));
+            BufferedInputStream input = new BufferedInputStream(new FileInputStream("data.txt"));
+           
             BufferedOutputStream output = new BufferedOutputStream(
-                    new GZIPOutputStream(new FileOutputStream("test2.zip")));
+                    new GZIPOutputStream(new BufferedOutputStream (new FileOutputStream("test6.zip"))));
+            //GZIPOutputStream output = new GZIPOutputStream(new BufferedOutputStream(
+            //       new FileOutputStream("test4.zip")));
+           
             System.out.println("Writing file");
 
             int readInt = 0;
@@ -38,7 +43,6 @@ public class Exam {
             }
             input.close();
             output.close();
-
 
 //            // 압출 풀기
 //            BufferedReader in2 = new BufferedReader(
