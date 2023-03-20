@@ -1,21 +1,18 @@
 package com.simminjeong.praticeex.exam15;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Main {
     public static void main(String[] args) {
-        
-        
-        try  {
+
+        try {
             String s = null;
             s.length();
 
         } catch (NullPointerException n) {
-            System.out.println("null값임");
+            System.out.println("NullPointerException 예외를 catch 하였습니다");
+            System.out.println("---- stack trace (여기부터) ----");
             n.printStackTrace();
+            System.out.println("---- stack trace (여기까지) ----");
         }
     }
 }
-
 
