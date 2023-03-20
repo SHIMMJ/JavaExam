@@ -1,18 +1,20 @@
 package com.simminjeong.praticeex.exam15;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
-        String s = "Three";
+        System.out.println("프로그램 시작");
+        try (FileWriter fw = new FileWriter("data/data.txt")) {
 
-        try {
+            fw.write("hello");
 
-            int i = Integer.parseInt(s);
 
-        } catch (NumberFormatException n) {
-            System.out.println("NumberFormatException 예외를 catch 하였습니다");
-            System.out.println("정수로 반환할 수 없습니다.");
-            
+        } catch (IOException e) {
+            System.out.println("에러 발생");
+
+
         }
     }
 }
-
