@@ -1,6 +1,6 @@
 package com.simminjeong.praticeex.examup10;
 
-public class DownCounter implements Counter {
+public class UpCounter implements Counter {
 
     private int count = 0;
 
@@ -14,7 +14,7 @@ public class DownCounter implements Counter {
 
     @Override
     public int count() {
-        return count--;
+        return count++;
     }
 
 }

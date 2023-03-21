@@ -1,10 +1,10 @@
 package com.simminjeong.praticeex.examup10test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import com.simminjeong.praticeex.examup10.UpCounter;
 
-public class CounterTest {
+public class UpCounterTest {
 
     @Test
     public void setter_테스트() {
@@ -26,7 +26,7 @@ public class CounterTest {
         UpCounter counter1 = new UpCounter();
 
         counter.setCount(5);
-//        counter.increase();
+        counter.count();
 
         counter1.setCount(5);
 
@@ -34,6 +34,5 @@ public class CounterTest {
         assertEquals(counter1.getCount() + 1, counter.getCount());
 
     }
-
 
 }
