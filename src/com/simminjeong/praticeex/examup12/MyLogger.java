@@ -47,6 +47,4 @@ public final class MyLogger {
         logger2.log("second");
     }
 
-
-
 }

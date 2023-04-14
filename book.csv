@@ -1,0 +1,8 @@
+bookId,title,writer,publisher,rentState
+1,역행자,심민정,민정출판,false
+2,데이터베이스개론,임서영,서영출판,true
+4,윌리를찾아서,심민정,교학사,true
+8,맥도날드를먹자,박경덕,경덕출판,true
+10,곰세마리,최민영,민영출판,true
+9,누구인가,최경민,경민출판,false
+65,집,심민정,심출판,true
