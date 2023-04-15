@@ -1,35 +1,43 @@
 package com.simminjeong.finalprojectupdatecsv;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
+
+import com.simminjeong.finalprojectupdatecsv.CheckoutInfo;
 
 public class CheckoutManage {
 
-	
-//	private String checkoutdate;
-//	private String deadlinedate;
-	private CheckoutInfo checkoutinfo;
-
 	public static List<CheckoutInfo> checkoutinfos = new ArrayList<>();
 
-	public CheckoutManage() {
-	}
-
+	// 대출목록에 추가
 	public void create(CheckoutInfo checkinfo) {
 		checkoutinfos.add(checkinfo);
 	}
+	
+	// 대출 시간 반납시간 설정
+	public void setCheckoutDate(CheckoutInfo checkinfo) {
+		
+		Date now = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(now);
+		checkinfo.setCheckoutdate(calendar.getTime());
+		calendar.add(Calendar.DATE, 14);
+		checkinfo.setDeadlinedate(calendar.getTime());
+		checkinfo.setRentExtentionState(false);
+			
+	}
 
+	// 대출 목록 출력
 	public void select() {
 		for (CheckoutInfo cinfo : checkoutinfos) {
 			System.out.println(cinfo);
 		}
 	}
 
+	// 대출 목록에 저장된 정보인지확인
 	public CheckoutInfo select(String name, String title) {
 		for (CheckoutInfo cinfo : checkoutinfos) {
 			if (cinfo.getName().equals(name) && cinfo.getTitle().equals(title)) {
@@ -38,56 +46,34 @@ public class CheckoutManage {
 		}
 		return null;
 	}
-
-	public void setChekoutdate() {
-
-		Date now = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		checkoutinfo.setDeadlinedate(format.format(now));
-	}
 	
-	public String getCheckoutdate() {
-	    return this.checkoutinfo.getCheckoutdate();
-	}
 	
-	public String getDeadlinedate() {
-        return this.checkoutinfo.getDeadlinedate();
-    }
+//	public void setCheckout (String name, String title) {
+//		for (CheckoutInfo cinfo : checkoutinfos) {
+//			if (cinfo.ge)
+//		}
+//		
+//		
+//	}
+	
+	
 
-	public void setDeadline() {
+	// 대출 연장
+	public static void setDelayDeadline(CheckoutInfo ckin) {
+		if (!ckin.isRentExtentionState()) {
+			Date date = ckin.getDeadlinedate();
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			calendar.add(Calendar.DATE, 7);
+			ckin.setDeadlinedate(calendar.getTime());
 
-		Date now = new Date();
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(calendar.DATE, 14);
-		Date date = calendar.getTime();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		checkoutinfo.setDeadlinedate(format.format(date));
-	}
-
-
-	public void setDelayDeadline(String beforedeadline) {
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = new Date();
-		try {
-			date = formatter.parse(beforedeadline);
-			System.out.println(date);
-
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} else {
+			System.out.println("연장 불가");
+			return;
 		}
-
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.add(calendar.DAY_OF_MONTH, 7);
-		Date newdeadlinedate = calendar.getTime();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		System.out.println("여기");
-		checkoutinfo.setDeadlinedate(format.format(newdeadlinedate));
-		System.out.println("저기");
 	}
 
+	// 반납
 	public void delete(String deletename, String deletebook) {
 		boolean found = false;
 		for (CheckoutInfo coi : checkoutinfos) {
@@ -103,6 +89,5 @@ public class CheckoutManage {
 			System.out.println("대여목록에 없어요");
 		}
 	}
-
 
 }

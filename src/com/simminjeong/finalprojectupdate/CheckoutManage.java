@@ -1,34 +1,28 @@
 package com.simminjeong.finalprojectupdate;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class CheckoutManage {
 
-	private String deadlinedate;
-	private String checkoutdate;
-	private CheckoutInfo checkoutinfo;
-
 	private List<CheckoutInfo> checkoutinfos = new ArrayList<>();
 
-	public CheckoutManage() {
-	}
-
+	// 대출 목록에 추가
 	public void create(CheckoutInfo checkinfo) {
 		checkoutinfos.add(checkinfo);
 	}
 
+	// 대출 목록 출력
 	public void select() {
 		for (CheckoutInfo cinfo : checkoutinfos) {
 			System.out.println(cinfo);
 		}
 	}
 
+	// 대출 목록에 저장된 정보인지확인
 	public CheckoutInfo select(String name, String title) {
 		for (CheckoutInfo cinfo : checkoutinfos) {
 			if (cinfo.getName().equals(name) && cinfo.getTitle().equals(title)) {
@@ -38,59 +32,22 @@ public class CheckoutManage {
 		return null;
 	}
 
-	public void setChekoutdate() {
+	// 대출 연장
+	public static void setDelayDeadline(CheckoutInfo ckin) {
+		if (!ckin.isRentExtentionState()) {
+			Date date = ckin.getDeadlinedate();
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			calendar.add(Calendar.DATE, 7);
+			ckin.setDeadlinedate(calendar.getTime());
 
-		Date now = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		this.checkoutdate = format.format(now);
-	}
-
-	public void setDeadline() {
-
-	    System.out.println("시작");
-		Date now = new Date();
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(calendar.DATE, 14);
-		System.out.println("+14");
-		Date date = calendar.getTime();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		this.deadlinedate = format.format(date);
-		System.out.println("끝");
-	}
-
-	public String getCheckoutdate() {
-		return checkoutdate;
-	}
-
-	public String getDeadlinedate() {
-		return this.deadlinedate;
-	}
-
-	public void setDelayDeadline(String beforedeadline) {
-	    
-	    System.out.println("delary");
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = new Date();
-		try {
-			date = formatter.parse(beforedeadline);
-			System.out.println("delarytry");
-			System.out.println(date);
-
-		} catch (ParseException e) {
-		    System.out.println("delarycatch");
-			e.printStackTrace();
+		} else {
+			System.out.println("연장 불가");
+			return;
 		}
-
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.add(calendar.DAY_OF_MONTH, 7);
-		Date newdeadlinedate = calendar.getTime();
-		System.out.println("delaryddd");
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		this.deadlinedate = format.format(newdeadlinedate);
 	}
 
+	// 반납
 	public void delete(String deletename, String deletebook) {
 		boolean found = false;
 		for (CheckoutInfo coi : checkoutinfos) {
@@ -108,4 +65,6 @@ public class CheckoutManage {
 	}
 
 
-}
+	}
+
+
